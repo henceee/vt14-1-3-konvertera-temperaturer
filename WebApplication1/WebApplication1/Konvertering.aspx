@@ -5,11 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="~/Css/StyleSheet1.css" rel="stylesheet" />
 </head>
 <body>
+    <div id="lefty"></div>
     <form id="form1" runat="server">
     <div>
             <h1>Konvertera Temperaturer</h1>
+        <div id="filler"></div>
         <br />
         <br />
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Vänligen åtgärda följande fel:" />
@@ -20,8 +23,8 @@
         <br />
         <asp:TextBox ID="StartTemp" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="StartTemp" runat="server" Text="*" ErrorMessage="Fyll i en starttemperatur" Display="Dynamic"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="CompareValidator2" ControlToValidate="StartTemp" runat="server" Text="*" ErrorMessage="Använd endast heltal!" Display="Dynamic" Operator="GreaterThan" Type="Integer" ValueToCompare="-10000000"></asp:CompareValidator>
-         <br />
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="StartTemp" Text="*" ErrorMessage="Använd endast heltal!" Display="Dynamic" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
+        <br />
         <br />
 
          <%-------- SLUTTEMPERATUR --------%>
@@ -30,8 +33,12 @@
         <br />
         <asp:TextBox ID="EndTemp" runat="server"></asp:TextBox>
          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="EndTemp" runat="server" Text="*" ErrorMessage="Fyll i en sluttemperatur" Display="Dynamic"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="CompareValidator1" ControlToValidate="EndTemp" ValueToCompare="StartTemp" runat="server" Text="*" ErrorMessage="Sluttemperatur måste vara större än starttemperatur!" Operator="GreaterThanEqual" Display="Dynamic" Type="String"></asp:CompareValidator>
-        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="EndTemp" Text="*" ErrorMessage="Använd endast heltal!" Display="Dynamic" Type="Integer" ValueToCompare="-10000" Operator="GreaterThan"></asp:CompareValidator>
+        <asp:CompareValidator ID="CompareValidator2" runat="server"
+                    ControlToValidate="EndTemp" ControlToCompare="StartTemp" Operator="GreaterThanEqual" Type="Integer"
+                    Text="*" ErrorMessage="Sluttemperaturen måste vara högre än Starttemperaturen." Display="Dynamic" SetFocusOnError="True">
+        </asp:CompareValidator>
+            
+        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="EndTemp" Text="*" ErrorMessage="Använd endast heltal!" Display="Dynamic" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
         <br />
         <br />
         
@@ -46,23 +53,36 @@
         <br />
         <br />
 
-         <%-------- CELCIUS --------%>
-
-        <asp:RadioButton ID="Celcius" runat="server" GroupName="Radio" />
-
-        <asp:Label ID="Label4" runat="server" AssociatedControlID="Celcius" Text="Celcius till Farenheit" />
-        <br />
-
-         <%-------- FARENHEIT --------%>
+          <%-------- CELCIUS TILL FARENHEIT --------%>
 
         <asp:RadioButton ID="Farenheit" runat="server" GroupName="Radio" />
 
-        <asp:Label ID="Label5" runat="server" AssociatedControlID="Farenheit" Text="Farenheit till Celcius" />
+        <asp:Label ID="Label5" runat="server" AssociatedControlID="Farenheit" Text="Celcius till Farenheit" />
+        <br />
+
+         <%-------- FARENHEIT TILL CELCIUS --------%>
+
+        <asp:RadioButton ID="Celcius" runat="server" GroupName="Radio" />
+
+        <asp:Label ID="Label4" runat="server" AssociatedControlID="Celcius" Text="Farenheit till Celcius" />
         <br />
         <br />
         
        
-        <asp:Button ID="Button1" runat="server" Text="Konvertera" />
+        <asp:Button ID="Button1" runat="server" Text="Konvertera" OnClick="Button1_Click" />
+
+        <%-- Tabellen som renderas ut vid postback--%>
+
+        <asp:Table ID="TempTable" runat="server" Visible="false">
+            <asp:TableRow CssClass="firstrow">
+                <asp:TableCell ID="Col1">
+                    <asp:Literal ID="Literal1" runat="server">{0}</asp:Literal>
+                </asp:TableCell>
+                <asp:TableCell ID="Col2">
+                    <asp:Literal ID="Literal2" runat="server">{0}</asp:Literal>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
     </div>
     </form>
 </body>

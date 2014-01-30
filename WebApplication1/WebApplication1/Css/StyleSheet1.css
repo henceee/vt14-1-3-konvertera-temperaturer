@@ -1,0 +1,52 @@
+﻿#TempTable {
+
+    border: 1px solid black;
+    /*float: left;*/
+    margin-left: 62%;
+    margin-top: -77%;
+}
+
+td {
+
+    padding: 0px 40px 0px 40px;
+    border:none;
+    margin-left:0;
+}
+
+
+.color {
+
+    background-color: #EBEBE4;
+
+}
+
+.firstrow {
+
+    background-color: #719DE9;
+    color: white;
+}
+
+#form1 {
+
+    float: left;
+    margin-left: 1%;
+    margin-top: 10%;
+    
+}
+
+#lefty {
+   
+    margin-top: 10%;
+    float: left;
+    width: 200px;
+    height: 465px;
+    border-right: 1px solid black;
+}
+
+#filler {
+
+    background-color: #EBEBE4;
+    height: 20px;
+    width: 120%;
+
+}
