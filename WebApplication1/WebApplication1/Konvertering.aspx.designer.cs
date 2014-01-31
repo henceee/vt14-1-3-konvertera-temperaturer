@@ -139,22 +139,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// CompareValidator4 control.
+        /// RangeValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator4;
-        
-        /// <summary>
-        /// CompareValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator5;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
         
         /// <summary>
         /// Farenheit control.

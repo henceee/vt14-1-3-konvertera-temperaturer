@@ -48,8 +48,7 @@
         <br />
         <asp:TextBox ID="Steps" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="Steps" runat="server" Text="*" ErrorMessage="Fyll i temperatursteg" Display="Dynamic"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="CompareValidator4" ControlToValidate="Steps" runat="server" text="*" ErrorMessage="Temperatursteg måste vara inom intervallet 0-100" Operator="GreaterThan" Type="Integer" ValueToCompare="0" Display="Dynamic"></asp:CompareValidator>
-        <asp:CompareValidator ID="CompareValidator5" ControlToValidate="Steps" runat="server" Text="*" ErrorMessage="Temperatursteg måste vara inom intervallet 0-100" Operator="LessThanEqual" ValueToCompare="100" Type="Integer"></asp:CompareValidator>
+        <asp:RangeValidator ID="RangeValidator1" runat="server" Text="*" ControlToValidate="Steps" ErrorMessage="Temperatursteg måste vara inom intervallet 0-100" BorderStyle="NotSet" Display="Dynamic" MaximumValue="100" MinimumValue="0" Type="Integer"></asp:RangeValidator>
         <br />
         <br />
 
