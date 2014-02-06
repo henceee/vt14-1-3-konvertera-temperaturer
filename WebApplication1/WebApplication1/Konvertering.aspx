@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="lefty"></div>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
     <div>
             <h1>Konvertera Temperaturer</h1>
         <div id="filler"></div>
