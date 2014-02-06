@@ -18,9 +18,9 @@ namespace WebApplication1.Model
 
         public static int FarenheitToCelcius(int degreesF){
 
-            int Celcius = (degreesF - 32) * 5 / 9;
+            int celcius = (int)Math.Round((degreesF - 32) * 5d / 9);
             
-            return Celcius;
+            return celcius;
 
         }
     }

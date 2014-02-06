@@ -22,7 +22,7 @@
         <asp:Label ID="Label1" runat="server" AssociatedControlID="StartTemp" Text="Starttemperatur:" />
         <br />
         <asp:TextBox ID="StartTemp" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="StartTemp" runat="server" Text="*" ErrorMessage="Fyll i en starttemperatur" Display="Dynamic"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="StartTemp" runat="server" Text="*" ErrorMessage="Fyll i en starttemperatur" CssClass="red" Display="Dynamic"></asp:RequiredFieldValidator>
         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="StartTemp" Text="*" ErrorMessage="Använd endast heltal!" Display="Dynamic" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
         <br />
         <br />
@@ -54,7 +54,7 @@
 
           <%-------- CELCIUS TILL FARENHEIT --------%>
 
-        <asp:RadioButton ID="Farenheit" runat="server" GroupName="Radio" />
+        <asp:RadioButton ID="Farenheit" runat="server" GroupName="Radio" Checked="true" />
 
         <asp:Label ID="Label5" runat="server" AssociatedControlID="Farenheit" Text="Celcius till Farenheit" />
         <br />
@@ -75,10 +75,10 @@
         <asp:Table ID="TempTable" runat="server" Visible="false">
             <asp:TableRow CssClass="firstrow">
                 <asp:TableCell ID="Col1">
-                    <asp:Literal ID="Literal1" runat="server">{0}</asp:Literal>
+                    C
                 </asp:TableCell>
                 <asp:TableCell ID="Col2">
-                    <asp:Literal ID="Literal2" runat="server">{0}</asp:Literal>
+                    F
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

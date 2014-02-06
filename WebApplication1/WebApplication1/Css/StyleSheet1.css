@@ -43,10 +43,8 @@ td {
     border-right: 1px solid black;
 }
 
-#filler {
+.red {
 
-    background-color: #EBEBE4;
-    height: 20px;
-    width: 120%;
+    color: red;
 
 }
